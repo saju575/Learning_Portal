@@ -25,6 +25,18 @@
   --tw-content: '';
 }
 
+::-webkit-scrollbar{
+  width: 5px;
+}
+::-webkit-scrollbar-track{
+  background: #080E1B;
+}
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(#080E1B,#333);
+  border-radius: 30px;
+  height: 50px;
+} 
+
 /*
 1. Use a consistent sensible line-height in all browsers.
 2. Prevent adjustments of font size after orientation changes in iOS.
