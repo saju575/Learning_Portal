@@ -3,7 +3,7 @@ import SingleQuiz from "./SingleQuiz";
 
 const QuizList = () => {
   return (
-    <div class="space-y-8 ">
+    <div className="space-y-8 ">
       <SingleQuiz />
       <SingleQuiz />
       <SingleQuiz />

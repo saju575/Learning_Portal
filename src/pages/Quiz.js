@@ -4,8 +4,8 @@ import QuizList from "../components/quiz/QuizList";
 
 const Quiz = () => {
   return (
-    <section class="py-6 bg-primary">
-      <div class="mx-auto max-w-7xl px-5 lg:px-0">
+    <section className="py-6 bg-primary">
+      <div className="mx-auto max-w-7xl px-5 lg:px-0">
         {/* video title depend on this qiuz */}
         <QuizHeader />
 
@@ -13,7 +13,7 @@ const Quiz = () => {
         <QuizList />
 
         {/* quiz submit button */}
-        <button class="px-4 py-2 rounded-full bg-cyan block ml-auto mt-8 hover:opacity-90 active:opacity-100 active:scale-95 ">
+        <button className="px-4 py-2 rounded-full bg-cyan block ml-auto mt-8 hover:opacity-90 active:opacity-100 active:scale-95 ">
           Submit
         </button>
       </div>
