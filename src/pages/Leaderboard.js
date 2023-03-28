@@ -1,18 +1,22 @@
 import React from "react";
 import MyLeaderboard from "../components/leaderboard/MyLeaderboard";
 import RankTable from "../components/leaderboard/RankTable";
+import Navbar from "../components/navbar/Navbar";
 
 const Leaderboard = () => {
   return (
-    <section className="py-6 bg-primary">
-      <div className="mx-auto max-w-7xl px-5 lg:px-0">
-        {/* My Leaderboard */}
-        <MyLeaderboard />
+    <>
+      <Navbar />
+      <section className="py-6 bg-primary">
+        <div className="mx-auto max-w-7xl px-5 lg:px-0">
+          {/* My Leaderboard */}
+          <MyLeaderboard />
 
-        {/* Rank */}
-        <RankTable />
-      </div>
-    </section>
+          {/* Rank */}
+          <RankTable />
+        </div>
+      </section>
+    </>
   );
 };
 

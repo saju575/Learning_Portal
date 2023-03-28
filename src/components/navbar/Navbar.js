@@ -1,15 +1,49 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation } from "react-router-dom";
 import logoImg from "../../assets/images/learningportal.svg";
+import { userLogedOut } from "../../features/auth/authSlice";
 
 const Navbar = () => {
+  const { user } = useSelector((state) => state.auth);
+  const { id } = useSelector((state) => state.videos);
+
+  const dispatch = useDispatch();
+  //use loacation
+  const location = useLocation();
+
+  //handle logout function
+  const handleLogout = () => {
+    dispatch(userLogedOut());
+    localStorage.removeItem("auth");
+  };
+
   return (
     <nav className="shadow-md">
       <div className="max-w-7xl px-5 lg:px-0 mx-auto flex justify-between py-3">
         <img className="h-10" src={logoImg} />
         <div className="flex items-center gap-3">
-          <a href="./Leaderboard.html">Leaderboard</a>
-          <h2 className="font-bold">Saad Hasan</h2>
-          <button className="flex gap-2 border border-cyan items-center px-4 py-1 rounded-full text-sm transition-all hover:bg-cyan ">
+          <Link
+            to={`/course/${id}`}
+            className={`${
+              location.pathname === `/course/${id}` && "font-bold"
+            } cursor-pointer`}
+          >
+            Course
+          </Link>
+          <Link
+            to={"/leaderboard"}
+            className={`${
+              location.pathname === "/leaderboard" && "font-bold"
+            } cursor-pointer`}
+          >
+            Leaderboard
+          </Link>
+          <h2 className="">{user?.name}</h2>
+          <button
+            className="flex gap-2 border border-cyan items-center px-4 py-1 rounded-full text-sm transition-all hover:bg-cyan "
+            onClick={handleLogout}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

@@ -48,17 +48,24 @@
       "role": "student",
       "name": "Arif",
       "id": 7
+    },
+    {
+      "email": "saju@gmail.com",
+      "password": "$2a$10$hiU1nq4FAY/31l/8G4EdJe5O4AmqFtyzubZCxY6V7Lz4UBxbfIZiS",
+      "name": "Sakil Ahmed",
+      "role": "student",
+      "id": 8
     }
   ],
   "videos": [
     {
       "id": 1,
-      "title": "Debounce Function in JavaScript - JavaScript Job Interview question",
-      "description": "In this video, I have explained about the debounce function in JavaScript. This is a common question interviewers ask at Job Interviews. If you watch this video carefully, you will understand what is debounce and how to handle it with custom debounce function.",
-      "url": "https://www.youtube.com/embed/dD9O8DnIBj4",
-      "views": "51.2K",
-      "duration": "5:30",
-      "createdAt": "2023-01-15T15:17:01.727Z"
+      "title": "যে ১০ টি ভুল বিগিনার রিয়্যাক্ট ডেভেলপাররা করে থাকেন",
+      "description": "আপনারা যারা বিগিনার হিসেবে রিয়্যাক্ট জেস নিয়ে কাজ করা শুরু করেছেন, তারা রিয়্যাক্ট এর বেশ কিছু কনসেপ্ট ঠিক মতো আয়ত্ত না করতে পারার কারণে বিচিত্র কিছু সমস্যার সম্মুখীন হন এবং শেষ পর্যন্ত বুঝতে না পেরে হতাশ হয়ে পড়েন। তাদের জন্যই এই ভিডিওটি। এই ভিডিওতে আমি এমন ১০টি সমস্যার কথা তুলে ধরেছি যেগুলো বিগিনার হিসেবে আপনারা অহরহ সম্মুখীন হবেন। আশা করি ভিডিওটি দেখলে আপনাদের এই সমস্যাগুলো নিয়ে আর কনফিউশন থাকবেনা।",
+      "duration": "10:12",
+      "views": "2.1k",
+      "url": "https://www.youtube-nocookie.com/embed/6O4s7v28nlw",
+      "createdAt": "2023-02-24T17:59:00.000Z"
     },
     {
       "id": 2,

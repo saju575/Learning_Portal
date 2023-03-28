@@ -1,15 +1,15 @@
 import React from "react";
 
-const Player = () => {
+const Player = ({ link, title }) => {
   return (
     <iframe
       width="100%"
       className="aspect-video"
-      src="https://www.youtube.com/embed/56zUkaXJnUA"
-      title="Things I wish I knew as a Junior Web Developer - Sumit Saha - BASIS SoftExpo 2023"
-      frameborder="0"
+      src={link}
+      title={title}
+      frameBorder=""
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
+      allowFullScreen
     ></iframe>
   );
 };

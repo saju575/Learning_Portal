@@ -1,8 +1,25 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const Video = () => {
+const Video = ({ video }) => {
+  const { title, duration, views, id } = video;
+  const navigate = useNavigate();
+
+  //handle play one video
+  const handlePlayVideo = () => {
+    localStorage.setItem(
+      "videoInfo",
+      JSON.stringify({
+        storedVideoId: id,
+      })
+    );
+    navigate(`/course/${id}`);
+  };
   return (
-    <div className="w-full flex flex-row gap-2 cursor-pointer hover:bg-slate-900 p-2 py-3">
+    <div
+      className="w-full flex flex-row gap-2 cursor-pointer hover:bg-slate-900 p-2 py-3"
+      onClick={handlePlayVideo}
+    >
       {/* <!-- Thumbnail --> */}
       <svg
         fill="none"
@@ -24,16 +41,12 @@ const Video = () => {
       </svg>
       {/* <!-- Description --> */}
       <div clas="flex flex-col w-full">
-        <a href="#">
-          <p className="text-slate-50 text-sm font-medium">
-            Things I wish I knew as a Junior Web Developer - Sumit Saha - BASIS
-            SoftExpo 2023
-          </p>
-        </a>
+        <p className="text-slate-50 text-sm font-medium">{title}</p>
+
         <div>
-          <span className="text-gray-400 text-xs mt-1">34.5 Mins</span>
+          <span className="text-gray-400 text-xs mt-1">{duration} Mins</span>
           <span className="text-gray-400 text-xs mt-1"> | </span>
-          <span className="text-gray-400 text-xs mt-1">241K views</span>
+          <span className="text-gray-400 text-xs mt-1">{views} views</span>
         </div>
       </div>
     </div>
