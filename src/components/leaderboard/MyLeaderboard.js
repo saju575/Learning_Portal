@@ -1,6 +1,7 @@
 import React from "react";
 
-const MyLeaderboard = () => {
+const MyLeaderboard = ({ myScore }) => {
+  const { rank, student_name, quizMark, assignmentMark } = myScore;
   return (
     <div>
       <h3 className="text-lg font-bold">Your Position in Leaderboard</h3>
@@ -17,11 +18,13 @@ const MyLeaderboard = () => {
 
         <tbody>
           <tr className="border-2 border-cyan">
-            <td className="table-td text-center font-bold">4</td>
-            <td className="table-td text-center font-bold">Saad Hasan</td>
-            <td className="table-td text-center font-bold">50</td>
-            <td className="table-td text-center font-bold">50</td>
-            <td className="table-td text-center font-bold">100</td>
+            <td className="table-td text-center font-bold">{rank}</td>
+            <td className="table-td text-center font-bold">{student_name}</td>
+            <td className="table-td text-center font-bold">{quizMark}</td>
+            <td className="table-td text-center font-bold">{assignmentMark}</td>
+            <td className="table-td text-center font-bold">
+              {assignmentMark + quizMark}
+            </td>
           </tr>
         </tbody>
       </table>

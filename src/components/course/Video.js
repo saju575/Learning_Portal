@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const Video = ({ video }) => {
-  const { title, duration, views, id } = video;
+  const { title, duration, views, id } = video || {};
   const navigate = useNavigate();
 
   //handle play one video

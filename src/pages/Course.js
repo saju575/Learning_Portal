@@ -41,7 +41,7 @@ const Course = () => {
               {/* <Player /> */}
               {/* video description */}
               {/* <VideoDescription /> */}
-              {content}
+              {video && content}
             </div>
 
             {/* All videos List section */}

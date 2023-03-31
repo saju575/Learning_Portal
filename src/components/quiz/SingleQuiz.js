@@ -1,35 +1,39 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { changeChecked } from "../../features/quiz/quizSlice";
+import Option from "../ui/Option";
 
-const SingleQuiz = () => {
+const SingleQuiz = ({ question }) => {
+  const { question: title, options, id } = question;
+  const dispatch = useDispatch();
+
+  const handleAnswerChange = (e, index) => {
+    dispatch(
+      changeChecked({
+        quizId: id,
+        optionId: index,
+        isChecked: e.target.checked,
+      })
+    );
+  };
   return (
     <div className="quiz">
-      <h4 className="question">
-        Quiz 1 - What is a Debounce function in JavaScript?
-      </h4>
+      <h4 className="question">{title}</h4>
       <form className="quizOptions">
-        {/* <!-- Option 1 --> */}
-        <label htmlFor="option1_q1">
-          <input type="checkbox" id="option1_q1" />A function that is called
-          after a certain time interval
-        </label>
-
-        {/* <!-- Option 2 --> */}
-        <label htmlFor="option2_q1">
-          <input type="checkbox" id="option2_q1" />A function that is called
-          after a certain time interval
-        </label>
-
-        {/* <!-- Option 3 --> */}
-        <label htmlFor="option3_q1">
-          <input type="checkbox" id="option3_q1" />A function that is called
-          after a certain time interval
-        </label>
-
-        {/* <!-- Option 4 --> */}
-        <label htmlFor="option4_q1">
-          <input type="checkbox" id="option4_q1" />A function that is called
-          after a certain time interval
-        </label>
+        {options.map((option, index) => (
+          <Option
+            key={option.id}
+            htmlFor={`option${option.id}_q${id}`}
+            type="checkbox"
+            id={`option${option.id}_q${id}`}
+            title={option.option}
+            value={index}
+            checked={option.checked}
+            onChange={(e) => {
+              handleAnswerChange(e, index);
+            }}
+          />
+        ))}
       </form>
     </div>
   );

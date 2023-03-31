@@ -1,0 +1,122 @@
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+  }
+  
+  .modalContent {
+    background: linear-gradient(135deg, #0F1729, #3C4E6B);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 20px;
+    position: relative;
+    max-width: 550px;
+    width: 100%;
+    overflow-y: auto;
+  }
+  
+  .modalContent h6 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #f7f2f2;
+    
+  }
+  .modalContent h2 {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #f7f2f2;
+    
+  }
+  .modalContent h2 span {
+    color: #38BDF8;
+    
+  }
+  .modalContent p{
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #eee;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .form{
+    margin-top: 30px;
+  }
+  .inputGroup {
+    margin-bottom: 10px;
+  }
+  
+  .inputGroup label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #fff;
+  }
+  
+  .inputGroup input
+   {
+    width: 100%;
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    resize: none;
+    background: linear-gradient(135deg, #0F1729, #3C4E6B);
+    color: #fff;
+  }
+  
+  .btndiv {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .btndiv button {
+    background-color: transparent;
+    border: 1px solid #4e99a6;
+    color: #60b0be;
+    padding: 2px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btndiv button:hover {
+    background-color: #4e99a6;
+    color: #fff;
+  }
+  
+  .input:focus {
+    outline: none;
+    border: 1px solid #4e99a6;
+    box-shadow: 0 0 5px #4e99a6;
+  }
+  .warning {
+    color: rgb(213, 110, 110);
+    margin-bottom: 10px;
+  }
+  

@@ -15,13 +15,15 @@ const Navbar = () => {
   //handle logout function
   const handleLogout = () => {
     dispatch(userLogedOut());
-    localStorage.removeItem("auth");
+    localStorage.clear();
   };
 
   return (
     <nav className="shadow-md">
       <div className="max-w-7xl px-5 lg:px-0 mx-auto flex justify-between py-3">
-        <img className="h-10" src={logoImg} />
+        <Link to="/">
+          <img className="h-10" src={logoImg} alt="logo" />
+        </Link>
         <div className="flex items-center gap-3">
           <Link
             to={`/course/${id}`}

@@ -1,7 +1,6 @@
 import React from "react";
 import { useGetVideosQuery } from "../../features/videos/videosApi";
 import Error from "../ui/Error";
-import VideoLoader from "../ui/VideoLoader";
 import Video from "./Video";
 
 const VideoList = () => {

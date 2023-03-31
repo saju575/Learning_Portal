@@ -1,12 +1,12 @@
 import React from "react";
 import SingleQuiz from "./SingleQuiz";
 
-const QuizList = () => {
+const QuizList = ({ questions }) => {
   return (
     <div className="space-y-8 ">
-      <SingleQuiz />
-      <SingleQuiz />
-      <SingleQuiz />
+      {questions.map((q) => (
+        <SingleQuiz key={q.id} question={q} />
+      ))}
     </div>
   );
 };
