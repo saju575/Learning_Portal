@@ -21,7 +21,7 @@ const StudentLogin = () => {
       data?.user &&
       data?.user.role === "student"
     ) {
-      navigate("/course");
+      navigate("/course", { replace: true });
     }
   }, [responseError, data, navigate]);
   const handleSubmit = (e) => {
@@ -78,7 +78,16 @@ const StudentLogin = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-end">
+          <div className="flex items-center justify-between">
+            <div className="text-sm">
+              <Link
+                to={"/admin"}
+                href="#"
+                className="font-medium text-violet-600 hover:text-violet-500"
+              >
+                Admin Login
+              </Link>
+            </div>
             <div className="text-sm">
               <Link
                 to={"/register"}

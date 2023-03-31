@@ -3,7 +3,7 @@ import VideosTableRow from "./VideosTableRow";
 
 const VideosListTable = () => {
   return (
-    <div className="overflow-x-auto mt-4">
+    <div className="element-with-scrollbar overflow-x-auto mt-4">
       <table className="divide-y-1 text-base divide-gray-600 w-full">
         <thead>
           <tr>
