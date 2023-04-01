@@ -10,7 +10,7 @@ const AdminNavbar = () => {
   //handle logout function
   const handleLogout = () => {
     dispatch(adminLogedOut());
-    localStorage.clear();
+    localStorage.removeItem("adminAuth");
   };
 
   return (

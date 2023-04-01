@@ -137,6 +137,7 @@ function App() {
             </PrivateAdminRoute>
           }
         />
+
         <Route path="*" element={<p>There's nothing here: 404!</p>} />
       </Routes>
     </BrowserRouter>

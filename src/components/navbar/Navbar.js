@@ -15,7 +15,8 @@ const Navbar = () => {
   //handle logout function
   const handleLogout = () => {
     dispatch(userLogedOut());
-    localStorage.clear();
+    localStorage.removeItem("auth");
+    localStorage.removeItem("videoInfo");
   };
 
   return (
