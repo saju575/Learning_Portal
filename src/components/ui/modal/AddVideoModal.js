@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setShowAddModal } from "../../../features/admin/videos/videoSlice";
 import { useAddVideoMutation } from "../../../features/admin/videos/videosApi";
 import { formatNumberToShorter } from "../../../utils/formateNumberToShorter";
 import style from "./UpdateVideoModal.module.css";
-const AddVideoModal = ({ showModal, setShowModal }) => {
+const AddVideoModal = () => {
   const [addVideo, { isLoading, isSuccess }] = useAddVideoMutation();
+  const { showAddModal: showModal } = useSelector((state) => state.adminVideo);
+  const dispatch = useDispatch();
   const [video, setVideo] = useState({
     title: "",
     url: "",
@@ -13,9 +17,9 @@ const AddVideoModal = ({ showModal, setShowModal }) => {
   });
   useEffect(() => {
     if (isSuccess) {
-      setShowModal(false);
+      dispatch(setShowAddModal(false));
     }
-  }, [isSuccess, setShowModal]);
+  }, [isSuccess, dispatch]);
   const handleSubmit = (e) => {
     e.preventDefault();
     addVideo({
@@ -29,12 +33,15 @@ const AddVideoModal = ({ showModal, setShowModal }) => {
       {showModal && (
         <div className={style.modal}>
           <div className={style.modalContent}>
-            <span onClick={() => setShowModal(false)} className={style.close}>
+            <span
+              onClick={() => dispatch(setShowAddModal(false))}
+              className={style.close}
+            >
               &times;
             </span>
             <h2>Add Video Information</h2>
-            <form class={style.form} onSubmit={handleSubmit}>
-              <div class={style.inputBox}>
+            <form className={style.form} onSubmit={handleSubmit}>
+              <div className={style.inputBox}>
                 <label>Video Title</label>
                 <input
                   type="text"
@@ -53,7 +60,7 @@ const AddVideoModal = ({ showModal, setShowModal }) => {
                 />
               </div>
 
-              <div class={style.inputBox}>
+              <div className={style.inputBox}>
                 <label>Video url</label>
                 <input
                   type="url"
@@ -72,8 +79,8 @@ const AddVideoModal = ({ showModal, setShowModal }) => {
                 />
               </div>
 
-              <div class={style.column}>
-                <div class={style.inputBox}>
+              <div className={style.column}>
+                <div className={style.inputBox}>
                   <label>Number of views</label>
                   <input
                     name="views"
@@ -86,13 +93,13 @@ const AddVideoModal = ({ showModal, setShowModal }) => {
                       setVideo((draft) => {
                         return {
                           ...draft,
-                          [e.target.name]: Number(e.target.value),
+                          [e.target.name]: e.target.valueAsNumber,
                         };
                       });
                     }}
                   />
                 </div>
-                <div class={style.inputBox}>
+                <div className={style.inputBox}>
                   <label>Duration</label>
                   <input
                     type="text"
@@ -112,7 +119,7 @@ const AddVideoModal = ({ showModal, setShowModal }) => {
                 </div>
               </div>
 
-              <div class={style.inputBox}>
+              <div className={style.inputBox}>
                 <label>Description</label>
                 <textarea
                   rows={5}

@@ -1,4 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
+import assignmentsSliceReducer from "../features/admin/assignments/assignmentsSlice";
+import videoSliceReducer from "../features/admin/videos/videoSlice";
 import adminAuthSliceReducer from "../features/adminAuth/adminAuthSlice";
 import { apiSlice } from "../features/api/apiSlice";
 import authSliceReducer from "../features/auth/authSlice";
@@ -14,6 +16,8 @@ export const store = configureStore({
     quiz: quizSliceReducer,
     leaderboard: leaderboardSliceReducer,
     adminAuth: adminAuthSliceReducer,
+    adminVideo: videoSliceReducer,
+    adminAssignment: assignmentsSliceReducer,
   },
   middleware: (getDefaultMiddlewares) =>
     getDefaultMiddlewares().concat(apiSlice.middleware),

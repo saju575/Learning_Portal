@@ -1,13 +1,21 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import {
+  addAssignment,
+  addAssignmentId,
+  setShowDeleteModal,
+  setShowUpdateModal,
+} from "../../features/admin/assignments/assignmentsSlice";
+import { truncateWords } from "../../utils/truncateWords";
 
-const AssignmentTableRow = () => {
+const AssignmentTableRow = ({ assignment }) => {
+  const { title, video_title, totalMark, id } = assignment || {};
+  const dispatch = useDispatch();
   return (
     <tr>
-      <td className="table-td">Assignment 1 - Scoreboard Application</td>
-      <td className="table-td">
-        JavaScript Bangla Tutorial | JS AJAX | XMLHttp
-      </td>
-      <td className="table-td">100</td>
+      <td className="table-td">{truncateWords(title, 6)}</td>
+      <td className="table-td">{truncateWords(video_title, 6)}</td>
+      <td className="table-td">{totalMark}</td>
       <td className="table-td flex gap-x-2">
         <svg
           fill="none"
@@ -15,6 +23,10 @@ const AssignmentTableRow = () => {
           strokeWidth="1.5"
           stroke="currentColor"
           className="w-6 h-6 hover:text-red-500 cursor-pointer transition-all"
+          onClick={() => {
+            dispatch(addAssignmentId(id));
+            dispatch(setShowDeleteModal(true));
+          }}
         >
           <path
             strokeLinecap="round"
@@ -28,6 +40,10 @@ const AssignmentTableRow = () => {
           strokeWidth="1.5"
           stroke="currentColor"
           className="w-6 h-6 hover:text-blue-500 cursor-pointer transition-all"
+          onClick={() => {
+            dispatch(addAssignment(assignment));
+            dispatch(setShowUpdateModal(true));
+          }}
         >
           <path
             strokeLinecap="round"

@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import AdminNavbar from "../../components/navbar/AdminNavbar";
 import AddVideoModal from "../../components/ui/modal/AddVideoModal";
 import VideosListTable from "../../components/videos/VideosListTable";
+import { setShowAddModal } from "../../features/admin/videos/videoSlice";
 
 const Videoes = () => {
-  const [showModal, setShowModal] = useState(false);
+  const { showAddModal: showModal } = useSelector((state) => state.adminVideo);
+  const dispatch = useDispatch();
   return (
     <>
       <AdminNavbar />
@@ -13,7 +16,7 @@ const Videoes = () => {
           <div className="px-3 py-20 bg-opacity-10">
             <div className="w-full flex">
               <button
-                onClick={() => setShowModal(true)}
+                onClick={() => dispatch(setShowAddModal(true))}
                 className="btn ml-auto"
               >
                 Add Video
@@ -24,9 +27,7 @@ const Videoes = () => {
           </div>
         </div>
       </section>
-      {showModal && (
-        <AddVideoModal showModal={showModal} setShowModal={setShowModal} />
-      )}
+      {showModal && <AddVideoModal />}
     </>
   );
 };

@@ -1,23 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useDeleteVideoMutation } from "../../features/admin/videos/videosApi";
+import React from "react";
+import { useDispatch } from "react-redux";
+import {
+  addVideoId,
+  addVideoInfo,
+  setShowDeleteModal,
+  setShowUpdateModal,
+} from "../../features/admin/videos/videoSlice";
 import { truncateWords } from "../../utils/truncateWords";
-import DeleteConfirmModal from "../ui/modal/DeleteConfirmModal";
-import UpdateVideoModal from "../ui/modal/UpdateVideoModal";
 
 const VideosTableRow = ({ video }) => {
   const { title, description, id } = video;
-  const [showUpdateModal, setShowUpdateModal] = useState(false);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [deleteConfirm, setDeleteConfirm] = useState(false);
-  const [deleteVideo, { isSuccess, isLoading }] = useDeleteVideoMutation();
-  useEffect(() => {
-    if (deleteConfirm) {
-      deleteVideo(id);
-      if (isSuccess) {
-        setShowDeleteModal(false);
-      }
-    }
-  }, [deleteConfirm, id, isSuccess, deleteVideo]);
+
+  const dispatch = useDispatch();
+
   return (
     <tr>
       <td className="table-td">{truncateWords(title, 6)}</td>
@@ -30,7 +25,8 @@ const VideosTableRow = ({ video }) => {
           stroke="currentColor"
           className="w-6 h-6 hover:text-red-500 cursor-pointer transition-all"
           onClick={() => {
-            setShowDeleteModal(true);
+            dispatch(addVideoId(id));
+            dispatch(setShowDeleteModal(true));
           }}
         >
           <path
@@ -45,7 +41,10 @@ const VideosTableRow = ({ video }) => {
           strokeWidth="1.5"
           stroke="currentColor"
           className="w-6 h-6 hover:text-blue-500 cursor-pointer transition-all"
-          onClick={() => setShowUpdateModal(true)}
+          onClick={() => {
+            dispatch(addVideoInfo(video));
+            dispatch(setShowUpdateModal(true));
+          }}
         >
           <path
             strokeLinecap="round"
@@ -54,21 +53,6 @@ const VideosTableRow = ({ video }) => {
           />
         </svg>
       </td>
-      {showUpdateModal && (
-        <UpdateVideoModal
-          showModal={showUpdateModal}
-          setShowModal={setShowUpdateModal}
-          data={video}
-        />
-      )}
-      {
-        <DeleteConfirmModal
-          showModal={showDeleteModal}
-          setShowModal={setShowDeleteModal}
-          setConfirm={setDeleteConfirm}
-          loading={isLoading}
-        />
-      }
     </tr>
   );
 };

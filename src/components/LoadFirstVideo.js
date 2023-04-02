@@ -35,7 +35,11 @@ const LoadFirstVideo = () => {
     }
   }, [isSuccess, data]);
 
-  return isSuccess && videoId ? <Navigate to={`/course/${videoId}`} /> : null;
+  return isSuccess && videoId ? (
+    <Navigate to={`/course/${videoId}`} />
+  ) : (
+    <div>No video added Yet. So nothing to see</div>
+  );
 };
 
 export default LoadFirstVideo;
