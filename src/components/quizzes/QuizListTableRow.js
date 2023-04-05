@@ -1,12 +1,20 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import {
+  addQuiz,
+  addQuizId,
+  setShowDeleteModal,
+  setShowUpdateModal,
+} from "../../features/admin/quizes/quizesSlice";
+import { truncateWords } from "../../utils/truncateWords";
 
-const QuizListTableRow = () => {
+const QuizListTableRow = ({ quiz }) => {
+  const { id, question, video_title } = quiz || {};
+  const dispatch = useDispatch();
   return (
     <tr>
-      <td className="table-td">Quiz 1 - JavaScript Interview Questions</td>
-      <td className="table-td">
-        Debounce Function in JavaScript - JavaScript Job...
-      </td>
+      <td className="table-td">{truncateWords(question, 8)}</td>
+      <td className="table-td">{truncateWords(video_title, 6)}</td>
       <td className="table-td flex gap-x-2 justify-center">
         <svg
           fill="none"
@@ -14,6 +22,10 @@ const QuizListTableRow = () => {
           strokeWidth="1.5"
           stroke="currentColor"
           className="w-6 h-6 hover:text-red-500 cursor-pointer transition-all"
+          onClick={() => {
+            dispatch(addQuizId(id));
+            dispatch(setShowDeleteModal(true));
+          }}
         >
           <path
             strokeLinecap="round"
@@ -27,6 +39,10 @@ const QuizListTableRow = () => {
           strokeWidth="1.5"
           stroke="currentColor"
           className="w-6 h-6 hover:text-blue-500 cursor-pointer transition-all"
+          onClick={() => {
+            dispatch(addQuiz(quiz));
+            dispatch(setShowUpdateModal(true));
+          }}
         >
           <path
             strokeLinecap="round"

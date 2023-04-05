@@ -23,6 +23,7 @@ const AddAssignmentModal = () => {
 
   useEffect(() => {
     if (isSuccess) {
+      setInput({ title: "", totalMark: "", videoId: "" });
       dispatch(setShowAddModal(false));
     }
   }, [dispatch, isSuccess]);

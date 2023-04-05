@@ -51,7 +51,7 @@ const UpdateAssignmentModal = () => {
             >
               &times;
             </span>
-            <h2>Add Assignment According to Video Title</h2>
+            <h2>Update Assignment According to Video Title</h2>
             <form className={style.form} onSubmit={handleSubmit}>
               <div className={style.inputBox}>
                 <label>Assignment Title</label>
