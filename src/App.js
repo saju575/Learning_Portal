@@ -7,7 +7,7 @@ import LoadFirstVideo from "./components/LoadFirstVideo";
 import PrivateQuiz from "./components/PrivateQuiz";
 import PrivateRoute from "./components/PrivateRoute";
 import PublicRoute from "./components/PublicRoute";
-import Wrapper from "./components/Wrapper";
+// import Wrapper from "./components/Wrapper";
 import PrivateAdminRoute from "./components/adminWrapper/PrivateAdminRoute";
 import PublicAdminRoute from "./components/adminWrapper/PublicAdminRoute";
 import useAdminAuthCheck from "./hooks/useAdminAuthCheck";
@@ -70,9 +70,9 @@ function App() {
           path="/course/:videoId"
           element={
             <PrivateRoute>
-              <Wrapper>
-                <Course />
-              </Wrapper>
+              {/* <Wrapper> */}
+              <Course />
+              {/* </Wrapper> */}
             </PrivateRoute>
           }
         />

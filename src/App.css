@@ -36,6 +36,13 @@
   border-radius: 30px;
   height: 50px;
 } 
+/* number input fileld in and out spin showing off */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 
 /* Customize the scrollbar */
 .element-with-scrollbar::-webkit-scrollbar {

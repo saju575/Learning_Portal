@@ -1,19 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useGetVideosQuery } from "../features/videos/videosApi";
+import { addVideoId } from "../features/videos/videosSlice";
 import { checkLocalIdExist } from "../utils/checkLocalIdExist";
 
-const LoadFirstVideo = () => {
+const useLoadFirstVideo = () => {
   const [videoId, setVideoId] = useState("");
   const { data, isSuccess } = useGetVideosQuery();
-  console.log(data);
-
+  const [isVideoSet, setIsVideoSet] = useState(false);
+  const dispatch = useDispatch();
   useEffect(() => {
     const localVideoInfo = localStorage.getItem("videoInfo");
     if (localVideoInfo && data) {
       const id = JSON.parse(localVideoInfo).storedVideoId;
       if (checkLocalIdExist(data, id)) {
+        dispatch(addVideoId(id));
         setVideoId(id);
+
+        setIsVideoSet(true);
       } else if (isSuccess && data.length > 0) {
         localStorage.setItem(
           "videoInfo",
@@ -21,8 +25,9 @@ const LoadFirstVideo = () => {
             storedVideoId: data[0].id,
           })
         );
-
+        dispatch(addVideoId(data[0].id));
         setVideoId(data[0].id);
+        setIsVideoSet(true);
       }
     } else if (isSuccess && data.length > 0) {
       localStorage.setItem(
@@ -31,16 +36,12 @@ const LoadFirstVideo = () => {
           storedVideoId: data[0].id,
         })
       );
-
+      dispatch(addVideoId(data[0].id));
       setVideoId(data[0].id);
+      setIsVideoSet(true);
     }
-  }, [isSuccess, data]);
-
-  return isSuccess && videoId ? (
-    <Navigate to={`/course/${videoId}`} />
-  ) : (
-    <div>No video added Yet. So nothing to see</div>
-  );
+  }, [isSuccess, data, dispatch]);
+  return [isVideoSet, videoId];
 };
 
-export default LoadFirstVideo;
+export default useLoadFirstVideo;

@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useAddQuizMutation } from "../../../features/admin/quizes/quizesApi";
 import { setShowAddModal } from "../../../features/admin/quizes/quizesSlice";
@@ -60,8 +60,11 @@ function quizReducer(state, action) {
         ...state,
         options: state.options.map((option) =>
           option.id === action.payload.id
-            ? { ...option, isCorrect: true }
-            : { ...option, isCorrect: false }
+            ? {
+                ...option,
+                isCorrect: action.payload.value,
+              }
+            : { ...option }
         ),
       };
     case CLEAR_STATE:
@@ -83,14 +86,14 @@ function quizReducer(state, action) {
 const QuizAddModal = () => {
   const { data: videoList, isSuccess } = useGetVideosQuery();
   const [state, dispatch] = useReducer(quizReducer, initialState);
-  const [optionId, setOptionId] = useState("");
+
   const [addQuiz, { isSuccess: addSuccess, isLoading }] = useAddQuizMutation();
   const { showAddModal } = useSelector((s) => s.adminQuiz);
   const dispatch1 = useDispatch();
   useEffect(() => {
     if (addSuccess) {
       dispatch({ type: CLEAR_STATE });
-      setOptionId("");
+
       dispatch1(setShowAddModal(false));
     }
   }, [dispatch1, addSuccess]);
@@ -107,7 +110,10 @@ const QuizAddModal = () => {
         <div className={style.modal}>
           <div className={style.modalContent}>
             <span
-              onClick={() => dispatch1(setShowAddModal(false))}
+              onClick={() => {
+                dispatch({ type: CLEAR_STATE });
+                dispatch1(setShowAddModal(false));
+              }}
               className={style.close}
             >
               &times;
@@ -188,57 +194,114 @@ const QuizAddModal = () => {
                 />
               </div>
 
-              <div className={style.column}>
-                <div className={style.inputBox}>
-                  <label>Select Answer</label>
-                  <div className={style.selectBox}>
-                    <select
-                      required
-                      value={optionId}
+              <div className={style.checkbox}>
+                <div>
+                  <label>Select answers for this question given below</label>
+                </div>
+                {state.options[0].option && (
+                  <>
+                    <input
+                      type="checkbox"
+                      id="checkbox1"
+                      name="checkbox1"
+                      value={state.options[0].id}
+                      checked={state.options[0].isCorrect}
                       onChange={(e) => {
-                        setOptionId(e.target.value);
                         dispatch({
                           type: SET_CORRECT,
-                          payload: { id: parseInt(e.target.value) },
+                          payload: { id: 1, value: e.target.checked },
                         });
                       }}
-                    >
-                      <option value={""} hidden>
-                        Select answer
-                      </option>
-                      {state.options.map((o) => (
-                        <option key={o.id} value={o.id}>
-                          {o.option}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-                <div className={style.inputBox}>
-                  <label>Available Video Title List</label>
-                  <div className={style.selectBox}>
-                    <select
-                      required
-                      value={state.video_id}
+                    />
+                    <label htmlFor="checkbox1">{state.options[0].option}</label>
+                    <br />
+                  </>
+                )}
+
+                {state.options[1].option && (
+                  <>
+                    <input
+                      type="checkbox"
+                      id="checkbox2"
+                      name="checkbox2"
+                      value={state.options[1].id}
+                      checked={state.options[1].isCorrect}
                       onChange={(e) => {
                         dispatch({
-                          type: SET_VIDEO,
-                          payload: { id: e.target.value },
+                          type: SET_CORRECT,
+                          payload: { id: 2, value: e.target.checked },
                         });
                       }}
-                    >
-                      <option value={""} hidden>
-                        Select video title
-                      </option>
-                      {isSuccess &&
-                        videoList.length > 0 &&
-                        videoList.map((v) => (
-                          <option key={v.id} value={v.id}>
-                            {v.title}
-                          </option>
-                        ))}
-                    </select>
-                  </div>
+                    />
+                    <label htmlFor="checkbox2">{state.options[1].option}</label>
+                    <br />
+                  </>
+                )}
+
+                {state.options[2].option && (
+                  <>
+                    <input
+                      type="checkbox"
+                      id="checkbox3"
+                      name="checkbox3"
+                      value={state.options[2].id}
+                      checked={state.options[2].isCorrect}
+                      onChange={(e) => {
+                        dispatch({
+                          type: SET_CORRECT,
+                          payload: { id: 3, value: e.target.checked },
+                        });
+                      }}
+                    />
+                    <label htmlFor="checkbox3">{state.options[2].option}</label>
+                    <br />
+                  </>
+                )}
+
+                {state.options[3].option && (
+                  <>
+                    <input
+                      type="checkbox"
+                      id="checkbox4"
+                      name="checkbox4"
+                      value={state.options[3].id}
+                      checked={state.options[3].isCorrect}
+                      onChange={(e) => {
+                        dispatch({
+                          type: SET_CORRECT,
+                          payload: { id: 4, value: e.target.checked },
+                        });
+                      }}
+                    />
+                    <label htmlFor="checkbox4">{state.options[3].option}</label>
+                    <br />
+                  </>
+                )}
+              </div>
+              <div className={style.inputBox}>
+                <label>Available Video Title List</label>
+                <div className={style.selectBox}>
+                  <select
+                    required
+                    value={state.video_id}
+                    onChange={(e) => {
+                      dispatch({
+                        type: SET_VIDEO,
+                        payload: { id: e.target.value },
+                      });
+                    }}
+                  >
+                    <option value={""} hidden>
+                      Select video title
+                    </option>
+                    {isSuccess &&
+                      videoList.length > 0 &&
+                      videoList.map((v) => (
+                        <option key={v.id} value={v.id}>
+                          {v.title}
+                        </option>
+                      ))}
+                  </select>
                 </div>
               </div>
 

@@ -35,23 +35,45 @@ const Quiz = () => {
     }
   }, [submitSuccess, navigate]);
   //calculate the number of correct answers
-  const isCorrectOrNot = (options) => {
-    for (const i of options) {
-      if (i.checked !== i.isCorrect) {
-        return false;
+  // const isCorrectOrNot = (options) => {
+  //   for (const i of options) {
+  //     if (!(i.checked && i.isCorrect)) {
+  //       return false;
+  //     }
+  //   }
+  //   return true;
+  // };
+  // const numberOfCorrect = (tQuestion) => {
+  //   const totalAnswer = tQuestion.reduce((accumulator, question) => {
+  //     const isCorrect = isCorrectOrNot(question.options);
+  //     if (isCorrect) {
+  //       return accumulator + 1;
+  //     }
+  //     return accumulator;
+  //   }, 0);
+  //   return totalAnswer;
+  // };
+  const numberOfCorrect = (quizzes) => {
+    let numCorrectAnswers = 0;
+
+    for (let i = 0; i < quizzes.length; i++) {
+      const quiz = quizzes[i];
+      let numCheckedCorrectOptions = 0;
+      for (let j = 0; j < quiz.options.length; j++) {
+        const option = quiz.options[j];
+        if (option.checked && option.isCorrect) {
+          numCheckedCorrectOptions++;
+        }
       }
-      return true;
+      if (
+        numCheckedCorrectOptions ===
+        quiz.options.filter((option) => option.isCorrect).length
+      ) {
+        numCorrectAnswers++;
+      }
     }
-  };
-  const numberOfCorrect = (tQuestion) => {
-    const totalAnswer = tQuestion.reduce((accumulator, question) => {
-      const isCorrect = isCorrectOrNot(question.options);
-      if (isCorrect) {
-        return accumulator + 1;
-      }
-      return accumulator;
-    }, 0);
-    return totalAnswer;
+
+    return numCorrectAnswers;
   };
 
   //submit quiz

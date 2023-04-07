@@ -17,7 +17,7 @@ const Course = () => {
       <>
         {/* <PlayerLoader /> */}
         {/* <DescriptionLoader /> */}
-        <div>Loadding...</div>
+        <div>Loading..</div>
       </>
     );
   } else if (!isLoading && isError) {

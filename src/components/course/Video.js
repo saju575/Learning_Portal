@@ -1,10 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { addVideoId } from "../../features/videos/videosSlice";
 
 const Video = ({ video }) => {
   const { title, duration, views, id } = video || {};
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   //handle play one video
   const handlePlayVideo = () => {
     localStorage.setItem(
@@ -13,6 +15,7 @@ const Video = ({ video }) => {
         storedVideoId: id,
       })
     );
+    dispatch(addVideoId(id));
     navigate(`/course/${id}`);
   };
   return (

@@ -176,3 +176,136 @@ button[type="submit"]:hover {
 }
 
 
+
+
+"quizzes": [
+    {
+      "id": 1,
+      "question": "What is a Debounce function in JavaScript?",
+      "video_id": 1,
+      "video_title": "Debounce Function in JavaScript - JavaScript Job Interview question",
+      "options": [
+        {
+          "id": 1,
+          "option": "A function that is called after a certain time interval",
+          "isCorrect": true,
+          "checked":false
+        },
+        {
+          "id": 2,
+          "option": "A function that is called after a certain time interval",
+          "isCorrect": false,
+          "checked":false
+        },
+        {
+          "id": 3,
+          "option": "A function that is called after a certain time interval",
+          "isCorrect": false,
+          "checked":true
+        },
+        {
+          "id": 4,
+          "option": "A function that is called after a certain time interval",
+          "isCorrect": false,
+          "checked":true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "Which of the following is an example of a situation where you would use the Debounce function?",
+      "video_id": 1,
+      "video_title": "Debounce Function in JavaScript - JavaScript Job Interview question",
+      "options": [
+        {
+          "id": "1",
+          "option": "A search bar where the results are displayed as you type.",
+          "isCorrect": true,
+          "checked":false
+        },
+        {
+          "id": "2",
+          "option": "A button that performs an action when clicked.",
+          "isCorrect": false,
+          "checked":false
+        },
+        {
+          "id": 3,
+          "option": "An animation that plays when a user hovers over an element.",
+          "isCorrect": false
+          ,
+          "checked":false
+        },
+        {
+          "id": 4,
+          "option": "All of the above.",
+          "isCorrect": false,
+          "checked":false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "What is the difference between null and undefined in JavaScript?",
+      "video_id": 2,
+      "video_title": "#2 JavaScript Tips and Tricks - JavaScript Job Interview Questions",
+      "options": [
+        {
+          "id": 1,
+          "option": "null represents the intentional absence of any object value.",
+          "isCorrect": true,
+          "checked":true
+        },
+        {
+          "id": 2,
+          "option": "undefined represents the uninitialized value of a variable or property.",
+          "isCorrect": false,
+          "checked":false
+        },
+        {
+          "id": 3,
+          "option": "Same thing",
+          "isCorrect": false,
+          "checked":false
+        },
+        {
+          "id": 4,
+          "option": "No Difference",
+          "isCorrect": false,
+          "checked":false
+        }
+      ]
+    },
+    {
+      "question": "How do you call a function named \"myFun\" ?",
+      "video_id": 3,
+      "video_title": "3 JavaScript Tips and Tricks - JavaScript Job Interview Questions",
+      "options": [
+        {
+          "id": 1,
+          "option": "myFun();",
+          "isCorrect": true,
+          "checked":true
+        },
+        {
+          "id": 2,
+          "option": "myFun{};",
+          "isCorrect": false,
+          "checked":true
+        },
+        {
+          "id": 3,
+          "option": "myFun;",
+          "isCorrect": false,
+          "checked":false
+        },
+        {
+          "id": 4,
+          "option": "myFun[];",
+          "isCorrect": false,
+          "checked":false
+        }
+      ],
+      "id": 4
+    }
+  ],

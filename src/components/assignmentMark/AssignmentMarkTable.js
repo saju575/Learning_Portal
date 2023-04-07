@@ -1,7 +1,7 @@
 import React from "react";
 import TableRow from "./TableRow";
 
-const AssignmentMarkTable = () => {
+const AssignmentMarkTable = ({ assignmentMarks }) => {
   return (
     <div className="element-with-scrollbar overflow-x-auto mt-4">
       <table className="divide-y-1 text-base divide-gray-600 w-full">
@@ -17,10 +17,9 @@ const AssignmentMarkTable = () => {
 
         <tbody className="divide-y divide-slate-600/50">
           {/* table row  */}
-          <TableRow />
-          <TableRow />
-          <TableRow />
-          <TableRow />
+          {assignmentMarks.map((a) => (
+            <TableRow key={a.id} assignmentMark={a} />
+          ))}
         </tbody>
       </table>
     </div>

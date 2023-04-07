@@ -1,12 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import logoImg from "../../assets/images/learningportal.svg";
 import { userLogedOut } from "../../features/auth/authSlice";
 
 const Navbar = () => {
   const { user } = useSelector((state) => state.auth);
   const { id } = useSelector((state) => state.videos);
+  const { videoId } = useParams();
 
   const dispatch = useDispatch();
   //use loacation
@@ -18,18 +19,26 @@ const Navbar = () => {
     localStorage.removeItem("auth");
     localStorage.removeItem("videoInfo");
   };
-
+  //const link=id?`/course/${id}`:`/`
   return (
     <nav className="shadow-md">
       <div className="max-w-7xl px-5 lg:px-0 mx-auto flex justify-between py-3">
-        <Link to="/">
+        <Link to={id ? `/course/${id}` : `/`}>
           <img className="h-10" src={logoImg} alt="logo" />
         </Link>
         <div className="flex items-center gap-3">
-          <Link
+          {/* <Link
             to={`/course/${id}`}
             className={`${
               location.pathname === `/course/${id}` && "font-bold"
+            } cursor-pointer`}
+          >
+            Course
+          </Link> */}
+          <Link
+            to={id ? `/course/${id}` : `/`}
+            className={`${
+              location.pathname === `/course/${videoId}` && "font-bold"
             } cursor-pointer`}
           >
             Course

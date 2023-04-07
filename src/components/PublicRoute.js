@@ -1,9 +1,12 @@
 import { Navigate } from "react-router-dom";
 
 import useAuth from "../hooks/useAuth";
+import useLoadFirstVideo from "../hooks/useLoadFirstVideo";
 
 export default function PublicRoute({ children }) {
   const isLoggedIn = useAuth();
+  const [isVideoSet, videoId] = useLoadFirstVideo();
+  // console.log(videoId);
 
   // const localId = localStorage.getItem("videoInfo");
 
@@ -16,5 +19,10 @@ export default function PublicRoute({ children }) {
   //   }
   // }
 
-  return !isLoggedIn ? children : <Navigate to={`/intermediate`} />;
+  // return !isLoggedIn ? children : <Navigate to={`/intermediate`} />;
+  return isVideoSet && isLoggedIn && videoId ? (
+    <Navigate to={`/course/${videoId}`} />
+  ) : (
+    children
+  );
 }

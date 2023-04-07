@@ -21,7 +21,7 @@ const StudentLogin = () => {
       data?.user &&
       data?.user.role === "student"
     ) {
-      navigate("/course", { replace: true });
+      navigate("/", { replace: true });
     }
   }, [responseError, data, navigate]);
   const handleSubmit = (e) => {
