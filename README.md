@@ -11,7 +11,8 @@
 
 ### Functionality
 
-🠪 It has a video page , from that a student can view the video and give quiz and assignments to the video
+🠪 It has a video page , from that a student can view the video and give quiz and assignments to the video.
+
 🠪 Once a quiz or assignment has been given students can not give the quiz or assignment again to that particular video
 
 🠪 It has also a leaderboard page that is show top 20 student quiz and assignment marks
@@ -33,7 +34,15 @@
 
 <br/>
 
-| Admin Home Page                                                           |
+###### Student page screenshot
+
+<img src="./src/assets/gitImage/student.png" width="100%">
+
+###### Admin page screenshot
+
+<img src="./src/assets/gitImage/admin.png" width="100%">
+
+<!-- | Admin Home Page                                                           |
 | ------------------------------------------------------------------------- |
 | <img src="./src/assets/gitImage/adminHome.png" width="100%" height="80%"> |
 
@@ -47,4 +56,4 @@
 
 | Student Home Page                                        | Student Leaderboard Page                                        |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
-| <img src="./src/assets/gitImage/home.png" width="100%" > | <img src="./src/assets/gitImage/leaderboard.png" width="100%" > |
+| <img src="./src/assets/gitImage/home.png" width="100%" > | <img src="./src/assets/gitImage/leaderboard.png" width="100%" > | -->
