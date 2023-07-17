@@ -10,6 +10,7 @@ import { useCheckQuizGiven } from "../../hooks/useCheckQuizGiven";
 import { useQuizHaveOrNot } from "../../hooks/useQuizHaveorNot";
 import AssignmentLinkShowModal from "../ui/modal/AssignmentLinkShowModal";
 import AssignmentSubmitModal from "../ui/modal/AssignmentSubmitModal";
+import styles from "./VideoDescription.module.css";
 
 const VideoDescription = ({ video }) => {
   const { title, description, createdAt, id } = video || {};
@@ -94,7 +95,7 @@ const VideoDescription = ({ video }) => {
         Uploaded on {moment.utc(createdAt).format("DD MMMM YYYY")}
       </h2>
 
-      <div className="flex gap-4">
+      <div className={`flex gap-4 ${styles.btnFlexWrap}`}>
         {/* {isAssignmentPresent && (
           <button
             onClick={() => setShowModal(true)}
@@ -111,6 +112,7 @@ const VideoDescription = ({ video }) => {
                 ? "disable"
                 : "hover:bg-cyan hover:text-primary cursor-pointer"
             }`}
+            style={{ zIndex: 1 }}
             onClick={handleQuiz}
             disabled={quizGivenOrNot}
           >
@@ -119,6 +121,7 @@ const VideoDescription = ({ video }) => {
         ) : (
           <button
             className={`px-3 font-bold py-1 border border-cyan text-cyan rounded-full text-sm disable`}
+            style={{ zIndex: 1 }}
             disabled
           >
             কোনো কুইজ নেই
