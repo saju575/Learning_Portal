@@ -27,8 +27,7 @@
 
 <br/>
 
-> **Note**
-> In this project the server are used is a dummy local server.To start the server you have to download the "server" folder add install node dependency (e.x npm install) then start the server (e.x npm start).
+
 
 ### Web page screenshot
 
