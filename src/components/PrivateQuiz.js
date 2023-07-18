@@ -1,5 +1,6 @@
+/* eslint-disable eqeqeq */
 import { useEffect, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const PrivateQuiz = ({ children, isAuthenticated }) => {
   const { quizId } = useParams();
