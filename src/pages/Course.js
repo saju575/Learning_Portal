@@ -5,6 +5,7 @@ import VideoDescription from "../components/course/VideoDescription";
 import VideoList from "../components/course/VideoList";
 import Navbar from "../components/navbar/Navbar";
 import Error from "../components/ui/Error";
+import Title from "../components/ui/Title";
 import { useGetVideoQuery } from "../features/videos/videosApi";
 
 const Course = () => {
@@ -33,6 +34,7 @@ const Course = () => {
   return (
     <>
       <Navbar />
+      <Title titleName={"Course"} />
       <section className="py-6 bg-primary">
         <div className="mx-auto max-w-7xl px-5 lg:px-0">
           <div className="grid grid-cols-3 gap-2 lg:gap-8">

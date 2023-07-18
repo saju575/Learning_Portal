@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AssignmentList from "../../components/assignment/AssignmentList";
 import AdminNavbar from "../../components/navbar/AdminNavbar";
+import Title from "../../components/ui/Title";
 import AddAssignmentModal from "../../components/ui/modal/AddAssignmentModal";
 import AssignmentAddWarningModal from "../../components/ui/modal/AssignmentAddWarningModal";
 import {
@@ -18,6 +19,7 @@ const Assignment = () => {
   const dispatch = useDispatch();
   return (
     <>
+      <Title titleName={"Assignment"} isAdmin />
       <AdminNavbar />
       <section className="py-6 bg-primary">
         <div className="mx-auto max-w-full px-5 lg:px-20">

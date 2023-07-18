@@ -2,6 +2,7 @@ import React from "react";
 import AssignmentMarkTable from "../../components/assignmentMark/AssignmentMarkTable";
 import AdminNavbar from "../../components/navbar/AdminNavbar";
 import Error from "../../components/ui/Error";
+import Title from "../../components/ui/Title";
 import { useGetAssignmentMarksQuery } from "../../features/assignment/assignmentApi";
 
 const AssignmentMark = () => {
@@ -47,6 +48,7 @@ const AssignmentMark = () => {
   }
   return (
     <>
+      <Title titleName={"Assignment Marks"} isAdmin />
       <AdminNavbar />
       <section className="py-6 bg-primary">
         <div className="mx-auto max-w-full px-5 lg:px-20">{content}</div>

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import MyLeaderboard from "../components/leaderboard/MyLeaderboard";
 import RankTable from "../components/leaderboard/RankTable";
 import Navbar from "../components/navbar/Navbar";
+import Title from "../components/ui/Title";
 import useGetStudentMarks from "../hooks/useGetStudentMarks";
 
 const numberOfRankStudent = 20;
@@ -35,6 +36,7 @@ const Leaderboard = () => {
 
   return (
     <>
+      <Title titleName={"Leaderboard"} isAdmin />
       <Navbar />
       <section className="py-6 bg-primary">
         <div className="mx-auto max-w-7xl px-5 lg:px-0">

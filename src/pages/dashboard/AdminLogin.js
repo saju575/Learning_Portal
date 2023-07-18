@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Error from "../../components/ui/Error";
+import Title from "../../components/ui/Title";
 import { useAdminLoginMutation } from "../../features/adminAuth/adminAuthApi";
 
 const AdminLogin = () => {
@@ -31,6 +32,7 @@ const AdminLogin = () => {
 
   return (
     <section className="py-6 bg-primary h-screen grid place-items-center">
+      <Title titleName={"Sign in"} isAdmin />
       <div className="mx-auto max-w-md px-5 lg:px-0">
         <div>
           <h2 className="text-center text-2xl">Learning Portal</h2>
