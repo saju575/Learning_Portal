@@ -2,12 +2,10 @@
 
 ### Live Preview [Preview](https://lws-learningprotal.netlify.app)
 
-### Technologies used in this application
+### Technologies Used 
 
-    🠪 JavaScript
-    🠪 ReactJs
-    🠪 Redux-toolkit
-    🠪 React router dom (for routing purposes)
+JavaScript | React.js | Redux-toolkit | React router dom | React-helmet |
+   
 
 ### Functionality
 
