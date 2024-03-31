@@ -21,7 +21,7 @@ JavaScript | React.js | Redux-toolkit | React router dom | React-helmet |
 
 🠪 Admin must to login with propper password and email address
 
-🠪 Email : admin@learnwithsumit.com Password : lws@123456
+🠪 Email : sakil@gmail.com Password : lws@123456
 
 <br/>
 
